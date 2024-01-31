@@ -2431,6 +2431,7 @@ GameObject:
   - component: {fileID: 792972549}
   - component: {fileID: 792972548}
   - component: {fileID: 792972550}
+  - component: {fileID: 792972551}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -2547,7 +2548,7 @@ MonoBehaviour:
   maxJumpForce: 15
   chargeRate: 20
   moveSpeed: 5
-  knockbackForce: 10
+  knockbackForce: 0
 --- !u!58 &792972548
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2666,6 +2667,27 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!95 &792972551
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792972542}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74c5eaf747cd6cf44b001e2a5964f081, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1514277539
 GameObject:
   m_ObjectHideFlags: 0

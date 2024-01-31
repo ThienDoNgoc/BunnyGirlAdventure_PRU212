@@ -13,11 +13,13 @@ public class PlayerJump : MonoBehaviour
     private bool isCharging = false;
     private Rigidbody2D rb;
     private Vector3 originalScale; // Store the original scale
+    private Animator anim; // Animator component
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         originalScale = transform.localScale; // Get the original scale
+        anim = GetComponent<Animator>(); // Get the Animator component
     }
 
     void Update()
@@ -61,6 +63,9 @@ public class PlayerJump : MonoBehaviour
                 transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z); // Face left
             }
         }
+
+        // Set the "Jump" parameter in the Animator
+        anim.SetBool("Jump", isJumping);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -75,6 +80,4 @@ public class PlayerJump : MonoBehaviour
             rb.AddForce(new Vector2(knockbackDirection.x * knockbackForce, 0f), ForceMode2D.Impulse);
         }
     }
-
-
 }
