@@ -41,14 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: bg
+  - name: Background
     uniqueID: 2902633401
     locked: 0
-  - name: mid
+  - name: MidGround
     uniqueID: 1483125377
     locked: 0
-  - name: fore
-    uniqueID: 3956432573
-  - name: Player
+  - name: Enity
     uniqueID: 3102510017
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3956432573
     locked: 0
