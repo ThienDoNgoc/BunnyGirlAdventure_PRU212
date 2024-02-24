@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartScene.unity
-    guid: aa3592ab493ee9648968f2923034ce15
-  - enabled: 1
-    path: Assets/Scenes/DoNgocThien.unity
-    guid: df64f31ccd9a4b344ae9afead90b3f6c
-  - enabled: 1
     path: Assets/Scenes/TranMinhKhoi.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
