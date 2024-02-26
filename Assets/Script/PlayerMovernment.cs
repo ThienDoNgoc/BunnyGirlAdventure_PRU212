@@ -51,6 +51,7 @@ public class PlayerJump : MonoBehaviour
         if (!isCharging) // Only allow movement if not charging jump
         {
             float moveX = Input.GetAxis("Horizontal");
+            anim.SetFloat("Speed", Mathf.Abs(moveX));
             rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
 
             // Flip character based on direction
@@ -75,7 +76,6 @@ public class PlayerJump : MonoBehaviour
             isJumping = false;
             // Determine the direction of the knockback
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            Debug.Log("Knockback direction: " + knockbackDirection);
             // Apply the knockback force horizontally
             rb.AddForce(new Vector2(knockbackDirection.x * knockbackForce, 0f), ForceMode2D.Impulse);
         }
