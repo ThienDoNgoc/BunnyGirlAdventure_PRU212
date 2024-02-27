@@ -4,7 +4,7 @@ using UnityEngine;
 public class CarrotManager : MonoBehaviour
 {
     public static CarrotManager instance;
-    private int carrots;
+    public int carrots;
     [SerializeField] private TMP_Text carrotDisplay;
     private void Awake()
     {

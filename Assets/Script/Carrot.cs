@@ -18,7 +18,7 @@ public class Carrot : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player")&& !hasTriggered)
+        if (collision.CompareTag("Player") && !hasTriggered)
         {
             hasTriggered = true;
             carrotManager.ChangCarrots(value);

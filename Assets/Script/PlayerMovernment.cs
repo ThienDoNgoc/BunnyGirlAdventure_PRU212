@@ -30,6 +30,8 @@ public class PlayerJump : MonoBehaviour
             isCharging = true;
             currentJumpForce = 0f;
             rb.velocity = Vector2.zero; // Stop the character immediately
+            anim.SetFloat("Speed",0);
+
         }
 
         // Charge up jump force while button is held
