@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerJump : MonoBehaviour
 {
@@ -71,8 +73,12 @@ public class PlayerJump : MonoBehaviour
         anim.SetBool("Jump", isJumping);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "FinishPoint")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+        }
         if (collision.gameObject.layer == LayerMask.NameToLayer("UI"))
         {
             isJumping = false;
@@ -81,5 +87,6 @@ public class PlayerJump : MonoBehaviour
             // Apply the knockback force horizontally
             rb.AddForce(new Vector2(knockbackDirection.x * knockbackForce, 0f), ForceMode2D.Impulse);
         }
+        
     }
 }
