@@ -17,9 +17,10 @@ public class PlayerJump : MonoBehaviour
     private bool isCharging = false;
     private Rigidbody2D rb;
     private Vector3 originalScale; // Store the original scale
-    private Animator anim; // Animator component
     private bool facingRight = true;
-
+    
+    private Animator anim; // Animator component
+    AudioSource jumpsound;
 
     void Start()
     {
@@ -32,7 +33,8 @@ public class PlayerJump : MonoBehaviour
         PlayerPrefs.DeleteKey("PlayerPosY");
         rb = GetComponent<Rigidbody2D>();
         originalScale = transform.localScale; // Get the original scale
-        anim = GetComponent<Animator>(); // Get the Animator component     
+        anim = GetComponent<Animator>(); // Get the Animator component
+        jumpsound = GetComponent<AudioSource>();             // 
     }
 
     void Update()
@@ -61,6 +63,7 @@ public class PlayerJump : MonoBehaviour
             rb.AddForce(new Vector2(0f, currentJumpForce), ForceMode2D.Impulse);
             isJumping = true;
             isCharging = false;
+            jumpsound.Play();
         }
 
         // Horizontal Movement
