@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerJump : MonoBehaviour
 {
+    public ParticleSystem dust;
     public float maxJumpForce = 20f;
     public float chargeRate = 20f;
     public float moveSpeed = 5f;
@@ -16,6 +18,8 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 originalScale; // Store the original scale
     private Animator anim; // Animator component
+    private bool facingRight = true;
+
 
     void Start()
     {
@@ -39,7 +43,7 @@ public class PlayerJump : MonoBehaviour
             isCharging = true;
             currentJumpForce = 0f;
             rb.velocity = Vector2.zero; // Stop the character immediately
-            anim.SetFloat("Speed",0);
+            anim.SetFloat("Speed", 0);
 
         }
 
@@ -53,6 +57,7 @@ public class PlayerJump : MonoBehaviour
         // Jump when button is released
         if (Input.GetButtonUp("Jump") && isCharging)
         {
+            dust.Play();
             rb.AddForce(new Vector2(0f, currentJumpForce), ForceMode2D.Impulse);
             isJumping = true;
             isCharging = false;
@@ -64,21 +69,38 @@ public class PlayerJump : MonoBehaviour
             float moveX = Input.GetAxis("Horizontal");
             anim.SetFloat("Speed", Mathf.Abs(moveX));
             rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
-
             // Flip character based on direction
-            if (moveX > 0)
+            //if (moveX > 0)
+            //{
+            //    dust.Play();
+            //    transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
+            //    //dust.transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
+            //    // Face right
+            //}
+            //else if (moveX < 0)
+            //{
+            //    dust.Play();
+            //    transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
+            //    //dust.transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);      
+            //}
+            if ((moveX > 0 && !facingRight) || (moveX < 0 && facingRight))
             {
-                transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z); // Face right
-            }
-            else if (moveX < 0)
-            {
-                transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z); // Face left
+                Flip();
             }
         }
 
         // Set the "Jump" parameter in the Animator
         anim.SetBool("Jump", isJumping);
     }
+
+    private void Flip()
+    {
+        dust.Play();
+        facingRight = !facingRight;
+        transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
+    }
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
