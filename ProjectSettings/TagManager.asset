@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - FinishPoint
+  - EndScene1
+  - BackScene
+  - BackScene2
+  - BackScene3
   layers:
   - Default
   - TransparentFX
@@ -48,11 +52,11 @@ TagManager:
   - name: MidGround
     uniqueID: 1483125377
     locked: 0
-  - name: Enity
-    uniqueID: 3102510017
-    locked: 0
   - name: ForeGround
     uniqueID: 3956432573
+    locked: 0
+  - name: Enity
+    uniqueID: 3102510017
     locked: 0
   - name: Item
     uniqueID: 2299279595

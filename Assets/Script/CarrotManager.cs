@@ -11,14 +11,34 @@ public class CarrotManager : MonoBehaviour
         if (!instance)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
     private void OnGUI()
     {
-        carrotDisplay.text = carrots.ToString();
+        if (carrotDisplay != null)
+        {
+            carrotDisplay.text = carrots.ToString();
+        }
     }
     public void ChangCarrots(int amount)
     {
         carrots += amount;
+    }
+    public void SetCarrotDisplay(TMP_Text newDisplay)
+    {
+        carrotDisplay = newDisplay;
+    }
+    public void Reset()
+    {
+        carrots = 5;
+        if (carrotDisplay != null)
+        {
+            carrotDisplay.text = carrots.ToString();
+        }
     }
 }

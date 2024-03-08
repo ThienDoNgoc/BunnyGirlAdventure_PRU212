@@ -19,9 +19,16 @@ public class PlayerJump : MonoBehaviour
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("PlayerPosX") && PlayerPrefs.HasKey("PlayerPosY"))
+        {
+            Vector2 playerPos = new Vector2(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"));
+            transform.position = playerPos;
+        }
+        PlayerPrefs.DeleteKey("PlayerPosX");
+        PlayerPrefs.DeleteKey("PlayerPosY");
         rb = GetComponent<Rigidbody2D>();
         originalScale = transform.localScale; // Get the original scale
-        anim = GetComponent<Animator>(); // Get the Animator component
+        anim = GetComponent<Animator>(); // Get the Animator component     
     }
 
     void Update()
@@ -77,7 +84,33 @@ public class PlayerJump : MonoBehaviour
     {
         if (collision.gameObject.tag == "FinishPoint")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+            SceneManager.LoadScene(6);
+        }
+   
+        if (collision.gameObject.tag == "BackScene")
+        {
+            // Save the desired position to PlayerPrefs
+            PlayerPrefs.SetFloat("PlayerPosX", 9.16f);
+            PlayerPrefs.SetFloat("PlayerPosY", 37.49f);
+            SceneManager.LoadScene(1);
+        }
+        if (collision.gameObject.tag == "BackScene2")
+        {
+            // Save the desired position to PlayerPrefs
+            PlayerPrefs.SetFloat("PlayerPosX", 56.47f);
+            PlayerPrefs.SetFloat("PlayerPosY", 4.53f);
+            SceneManager.LoadScene(2);
+        }
+        if (collision.gameObject.tag == "BackScene3")
+        {
+            // Save the desired position to PlayerPrefs
+            PlayerPrefs.SetFloat("PlayerPosX", 43.08f);
+            PlayerPrefs.SetFloat("PlayerPosY", 10.55f);
+            SceneManager.LoadScene(3);
+        }
+        else if (collision.gameObject.tag == "EndScene1")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("UI"))
         {
