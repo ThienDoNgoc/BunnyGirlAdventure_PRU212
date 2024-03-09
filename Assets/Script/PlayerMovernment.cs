@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerJump : MonoBehaviour
 {
@@ -34,7 +33,7 @@ public class PlayerJump : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         originalScale = transform.localScale; // Get the original scale
         anim = GetComponent<Animator>(); // Get the Animator component
-        jumpsound = GetComponent<AudioSource>();             // 
+        jumpsound = GetComponent<AudioSource>();            
     }
 
     void Update()
@@ -109,6 +108,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (collision.gameObject.tag == "FinishPoint")
         {
+            CarrotManager.instance.carrots = -2;
             SceneManager.LoadScene(6);
         }
    
