@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: aa3592ab493ee9648968f2923034ce15
+  - enabled: 1
+    path: Assets/Scenes/DoNgocThien.unity
+    guid: df64f31ccd9a4b344ae9afead90b3f6c
+  - enabled: 1
+    path: Assets/Scenes/LeNguyenThienAn.unity
+    guid: 86d3dd1b65f21f344927bcf2d8bafbc2
+  - enabled: 1
+    path: Assets/Scenes/LeHuynhGiaHuy.unity
+    guid: fdb211e3464c11c4982ba66a0125808a
+  - enabled: 1
     path: Assets/Scenes/TranMinhKhoi.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 0d49e416b3f14b747b23ebdc07ebdd40
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: dfb48cc0e1465c74bbf67e56cac96919
   m_configObjects: {}

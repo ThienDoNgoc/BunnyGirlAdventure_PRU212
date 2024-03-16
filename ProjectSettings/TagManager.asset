@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FinishPoint
+  - EndScene1
+  - BackScene
+  - BackScene2
+  - BackScene3
   layers:
   - Default
   - TransparentFX
@@ -41,14 +46,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: bg
+  - name: Background
     uniqueID: 2902633401
     locked: 0
-  - name: mid
+  - name: MidGround
     uniqueID: 1483125377
     locked: 0
-  - name: fore
+  - name: ForeGround
     uniqueID: 3956432573
-  - name: Player
+    locked: 0
+  - name: Enity
     uniqueID: 3102510017
+    locked: 0
+  - name: Item
+    uniqueID: 2299279595
     locked: 0
